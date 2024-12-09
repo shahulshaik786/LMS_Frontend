@@ -13,7 +13,7 @@ export default function Login() {
         event.preventDefault();
         try {
             localStorage.clear();
-            const response = await axios.post('ingenious-expression-production.up.railway.app/adminlogin', {
+            const response = await axios.post('https://ingenious-expression-production.up.railway.app/adminlogin', {
                 email: email,
                 password: password,
             });
