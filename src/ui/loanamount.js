@@ -75,7 +75,7 @@ export default function LoanAmount() {
   };
 
   const handleBack = () => {
-    navigate("/layout/applied-loans");
+    navigate("https://ingenious-expression-production.up.railway.app/layout/applied-loans");
   };
 
   return (
