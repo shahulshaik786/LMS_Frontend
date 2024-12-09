@@ -25,7 +25,7 @@ export default function LoanHistory() {
   useEffect(() => {
     const fetchLoans = async () => {
       try {
-        const response = await axios.get('ingenious-expression-production.up.railway.app/allusers');
+        const response = await axios.get('https://ingenious-expression-production.up.railway.app/allusers');
         setAppliedLoans(response.data || []);
         localStorage.setItem('appliedLoans', JSON.stringify(response.data || []));
       } catch (error) {
@@ -46,7 +46,7 @@ export default function LoanHistory() {
   const viewPdf = async (email, loanType) => {
     try {
       const response = await axios.get(
-        `ingenious-expression-production.up.railway.app/api/pdf/view/${email}/${loanType}`,
+        `https://ingenious-expression-production.up.railway.app/api/pdf/view/${email}/${loanType}`,
         {
           responseType: 'blob',
         }
@@ -76,7 +76,7 @@ export default function LoanHistory() {
       params.append('status', status);
 
       const response = await axios.post(
-        'ingenious-expression-production.up.railway.app/updateStatus',
+        'https://ingenious-expression-production.up.railway.app/updateStatus',
         params,
         {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -86,7 +86,7 @@ export default function LoanHistory() {
       if (response.status === 200) {
         console.log(`Loan status updated: ${email}, ${loanType}, ${status}`);
         
-        const updatedResponse = await axios.get('ingenious-expression-production.up.railway.app/allusers');
+        const updatedResponse = await axios.get('https://ingenious-expression-production.up.railway.app/allusers');
         setAppliedLoans(updatedResponse.data || []);
         localStorage.setItem('appliedLoans', JSON.stringify(updatedResponse.data || []));
         alert(`Loan ${status} successfully!`);
