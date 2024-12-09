@@ -25,7 +25,7 @@ export default function Adminhome() {
   useEffect(() => {
     const fetchLoans = async () => {
       try {
-        const response = await axios.get('ingenious-expression-production.up.railway.app/allusers');
+        const response = await axios.get('https://ingenious-expression-production.up.railway.app/allusers');
         setAppliedLoans(response.data || []);
       } catch (error) {
         console.error('Error fetching applied loans:', error);
@@ -40,7 +40,7 @@ export default function Adminhome() {
   const viewPdf = async (email, loanType) => {
     try {
       const response = await axios.get(
-        `ingenious-expression-production.up.railway.app/api/pdf/view/${email}/${loanType}`,
+        `https://ingenious-expression-production.up.railway.app/api/pdf/view/${email}/${loanType}`,
         {
           responseType: 'blob',
         }
@@ -68,7 +68,7 @@ export default function Adminhome() {
       params.append("loanType", loanType);
       params.append("status", status);
 
-      const response = await axios.post("ingenious-expression-production.up.railway.app/updateStatus", params, {
+      const response = await axios.post("https://ingenious-expression-production.up.railway.app/updateStatus", params, {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       });
 
