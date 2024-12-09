@@ -62,7 +62,7 @@ export default function LoanOptions({ loanType }) {
     data.append('phno',formData.phno);
 
     try {
-      const response = await axios.post('ingenious-expression-production.up.railway.app/upload', data, {
+      const response = await axios.post('https://ingenious-expression-production.up.railway.app/upload', data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
