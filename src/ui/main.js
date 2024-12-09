@@ -20,7 +20,7 @@ export default function Main() {
         navigate('/');
       }
       try {
-        const res = await axios.get(`ingenious-expression-production.up.railway.app/finduser/${email}`);
+        const res = await axios.get(`https://ingenious-expression-production.up.railway.app/finduser/${email}`);
         setUsername(res.data.name);
       } catch (error) {
         console.log(error);
