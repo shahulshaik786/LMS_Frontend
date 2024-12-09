@@ -49,7 +49,7 @@ export default function AppliedLoans() {
         return;
       }
       try {
-        const response = await axios.get(`ingenious-expression-production.up.railway.app/userloans?email=${email}`);
+        const response = await axios.get(`https://ingenious-expression-production.up.railway.app/userloans?email=${email}`);
         setAppliedLoans(response.data || []);
 
         const acceptedLoans = response.data.filter(loan => loan.status === 'accepted').length;
@@ -88,7 +88,7 @@ export default function AppliedLoans() {
   // View PDF function
   const viewPdf = async (email, loanType) => {
     try {
-      const response = await axios.get(`ingenious-expression-production.up.railway.app/api/pdf/view/${email}/${loanType}`, {
+      const response = await axios.get(`https://ingenious-expression-production.up.railway.app/api/pdf/view/${email}/${loanType}`, {
         responseType: 'blob',
       });
       const fileURL = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
