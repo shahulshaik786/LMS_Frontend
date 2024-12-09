@@ -54,7 +54,7 @@ export default function LoanAmount() {
     data.append("signature", formData.signature);
 
     try {
-      const response = await axios.post("ingenious-expression-production.up.railway.app/loan/upload", data, {
+      const response = await axios.post("https://ingenious-expression-production.up.railway.app/loan/upload", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
